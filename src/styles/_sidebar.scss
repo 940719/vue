@@ -1,0 +1,120 @@
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100% - 70px)!important;
+    /* 侧边栏 */
+    .sidebar {
+        width: 200px ;
+        background: #f2fafd;
+        transition: all 0.25s;   
+        overflow-y: auto;
+        overflow-x: hidden;
+        z-index: 100;  
+        border-right: 1px solid #dcdfe6;
+        margin-bottom: 0px; 
+        >div{
+            height: 100%;
+        }   
+        .nav-buttom{
+            width: 16px;
+            height: 80px;
+            transition: all 0.25s;   
+            top: 350px;
+            z-index: 999;
+            cursor: pointer;
+            left: 183px;
+            position: fixed;
+            background-color: rgb(33, 153, 213);
+        }
+        .iconfont {
+            margin-right: 8px;
+            color: #fff;
+            font-size: 18px;
+        }
+        >div.menu-container>li.el-menu-item,
+        >div.menu-container>li.el-submenu>.el-submenu__title {
+            border-bottom: 1px solid rgba(238, 238, 238, 0.1);
+        }
+        .el-menu-item {
+            background: #f2fafd !important;
+        }
+        /* 菜单hover时的背景 */
+        .el-submenu__title:hover,
+        .el-menu-item:hover {
+            background: #81aee6 !important;
+        }
+        /* 菜单active时的背景 */
+        .el-menu-item.is-active {
+            background: #88b1e4 !important;
+        } 
+    }
+
+    /* 主体内容 */
+    .main-content {
+        width: calc(100% - 200px);
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        .nav-tabs{
+            flex: 0 0 100%;
+            height: 30px;
+            transition: all 0.25s;
+            .el-tabs__header {
+                background-color: #fff;
+                margin-bottom: 0 !important;
+            }
+           .el-tabs__item {
+            padding: 0 20px !important;
+            height: 30px;
+            line-height: 30px;
+            border-right: 1px solid #dcdfe6;
+            border-left: 1px solid #dcdfe6;
+            }
+            .el-tabs--border-card>.el-tabs__content{
+                padding: 0!important;
+            }
+            .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
+                border-bottom: 2px solid;
+            }
+        }
+        .main-container{
+            flex: 0 0 100%;
+            height: calc(100% - 30px);
+            transition: all 0.25s;
+            padding: 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: #f2fafd;
+        }
+    }
+}
+
+/* 折叠菜单下的样式 */
+.navCollapsed {
+    .main{
+        .sidebar {
+            width: 64px !important;
+            ul {
+                //display: none;
+            }
+            .iconfont+span {
+                display: none;
+            }
+            .el-submenu__icon-arrow {
+                display: none;
+            }
+            .nav-buttom{
+                left: 47px;
+            }
+        }
+        .main-content{
+            flex: 1;
+            .main-container {
+               
+            }
+        }
+        .aside__top{
+            left:64px!important;
+        }
+    }
+}
