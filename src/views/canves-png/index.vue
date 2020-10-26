@@ -4,7 +4,7 @@
       src="../../assets/images/shuiweiyi.png"
       style="width: 200; heigth: 200px"
       id="pic"
-      v-if="isT"
+      v-show="isT"
     />
     <canvas
       @mousemove="cnvs_getCoordinates($event)"
@@ -19,7 +19,7 @@ export default {
   name: "canvesPeg",
   data() {
     return {
-      isT: true,
+      isT: false,
     };
   },
   mounted() {
@@ -30,28 +30,33 @@ export default {
       canvas.width = image.width;
       canvas.height = image.height;
       var ctx = canvas.getContext("2d");
-      ctx.drawImage(image, 0, 0);
-
-      let realHight = 171;
-      let height = realHight;
+      ctx.fillStyle = "#3aa5cb";
+      let realHight = 0;
+      let height = 172;
+      
       (function drawFrame() {
-        if (height <= 90) {
+        if (height <= 90 ) {
           return;
         } else {
-          height = height * 0.99;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(image, 0, 0);
+          height -=  1;
+          realHight += 1;
           window.requestAnimationFrame(drawFrame);
           ctx.beginPath();
-
-          if (height > 80) {
-            ctx.fillStyle = "red";
-          } else {
-            ctx.fillStyle = "blue";
-          }
-          ctx.fillRect(104, height, 14, 3);
+          ctx.fillRect(104, height, 14, realHight);
           ctx.restore();
-          return canvas;
+          ctx.save(); //save和restore可以保证样式属性只运用于该段canvas元素
+        //   ctx.strokeStyle = "#000"; //设置描边样式
+          ctx.font = "24px Arial"; //设置字体大小和字体
+          ctx.fillStyle = "#fff"
+          let num = parseInt((realHight-2)*7/8)
+          ctx.fillText (num,98,201)
+          ctx.stroke(); //执行绘制
+          ctx.restore();
         }
       })();
+      return canvas;
     };
   },
   methods: {
@@ -67,3 +72,8 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+#myCanvas {
+  //zoom: 0.5;
+}
+</style>

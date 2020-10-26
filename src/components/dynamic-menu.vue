@@ -39,6 +39,10 @@ export default {
     },
     methods: {
         gotoRoute(name) {
+  
+            if(this.$route.name == name){
+                return;
+            }
             this.$router.push({ name })
         },
     },
