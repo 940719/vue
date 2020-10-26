@@ -108,6 +108,7 @@
 </template>
 
 <script>
+import { Message } from 'element-ui'
 import { login } from "@/api/permission";
 import allBackgroundImages from "@/utils/images.js";
 export default {
@@ -296,10 +297,7 @@ export default {
               console.log(e);
             }
           }else{
-            this.$notify.error({
-              title:'错误',
-              massage:"验证码输入不正确",
-            })
+             Message.error('验证码错误')
           }
         } else {
           console.log("error submit!!");

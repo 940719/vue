@@ -1,17 +1,16 @@
 <template>
-<div >
-  <div class="nav-buttom" @click="toggleNavCollapse"></div>
-  <el-menu
-    :collapse="isSidebarNavCollapse"
-    background-color="#f2fafd"
-    text-color="#5097ec"
-    active-text-color="#fff"
-    :default-active="currentMenu"
-  >
-    <DynamicMenu :menuList="sidebarMenu"></DynamicMenu>
-  </el-menu>
-</div>
-  
+  <div>
+    <div class="nav-buttom" @click="toggleNavCollapse"></div>
+    <el-menu
+      :collapse="isSidebarNavCollapse"
+      background-color="#f2fafd"
+      text-color="#5097ec"
+      active-text-color="#fff"
+      :default-active="currentMenu"
+    >
+      <DynamicMenu :menuList="sidebarMenu"></DynamicMenu>
+    </el-menu>
+  </div>
 </template><script>
 import DynamicMenu from "@/components/dynamic-menu";
 import { mapState } from "vuex";
@@ -60,13 +59,21 @@ const sidebarMenu = [
         },
         name: "pieMap",
         path: "/pieMap",
-      }
-    ]
+      },
+    ],
+  },
+  {
+    id: "3",
+    meta: {
+      icon: "tree",
+      name: "canves",     
+    },
+     name: "canvesPng",
+      path: "/canvesPng",
   }
-   
 ];
 export default {
-  name:'my-nav',
+  name: "my-nav",
   data() {
     return {
       sidebarMenu,
@@ -78,9 +85,9 @@ export default {
     ...mapState("permission", ["currentMenu"]),
   },
   methods: {
-    toggleNavCollapse(){
-      this.$store.commit('toggleNavCollapse')
-    }
+    toggleNavCollapse() {
+      this.$store.commit("toggleNavCollapse");
+    },
   },
   components: {
     DynamicMenu,
