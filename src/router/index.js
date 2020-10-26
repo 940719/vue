@@ -13,7 +13,7 @@ const indentMap = () => import('@/views/component-item/indent-map')
 const columnarMap = () => import('@/views/component-item/columnar-map')
 const pieMap = () => import('@/views/component-item/pie-map')
 //图片转化canves
-const canvesPng = () => import ('@/views/canves-png')
+const canvasPng = () => import ('@/views/canvas-png')
 import NotFound from '../views/errorPage/404'
 import Forbidden from '../views/errorPage/403'
 
@@ -100,9 +100,9 @@ const routes = [
       },
       {
         id: '3',
-        path: 'canvesPng',
-        component: canvesPng,
-        name: 'canvesPng',
+        path: 'canvasPng',
+        component: canvasPng,
+        name: 'canvasPng',
         meta: {
           name: 'canves',
           icon: 'tree',

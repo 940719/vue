@@ -66,10 +66,10 @@ const sidebarMenu = [
     id: "3",
     meta: {
       icon: "tree",
-      name: "canves",     
+      name: "canvas",     
     },
-     name: "canvesPng",
-      path: "/canvesPng",
+     name: "canvasPng",
+      path: "/canvasPng",
   }
 ];
 export default {

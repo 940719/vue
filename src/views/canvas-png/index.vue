@@ -16,7 +16,7 @@
 </template>
 <script>
 export default {
-  name: "canvesPeg",
+  name: "canvasPeg",
   data() {
     return {
       isT: false,
