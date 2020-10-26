@@ -31,25 +31,27 @@ export default {
       canvas.height = image.height;
       var ctx = canvas.getContext("2d");
       ctx.drawImage(image, 0, 0);
-     
-      let realHight = 200;
+
+      let realHight = 171;
       let height = realHight;
-      let y = 200
-      
-       (function drawFrame() {
-        if (height <= 20) {
-            return;
+      (function drawFrame() {
+        if (height <= 90) {
+          return;
         } else {
-            height = height * 0.99;
-            window.requestAnimationFrame(drawFrame);
-            ctx.beginPath();
-            ctx.fillStyle = 'blue';
-            ctx.fillRect(20, height, 50, 3);
-            ctx.restore();
-            return canvas;
+          height = height * 0.99;
+          window.requestAnimationFrame(drawFrame);
+          ctx.beginPath();
+
+          if (height > 80) {
+            ctx.fillStyle = "red";
+          } else {
+            ctx.fillStyle = "blue";
+          }
+          ctx.fillRect(104, height, 14, 3);
+          ctx.restore();
+          return canvas;
         }
-    }());
-    
+      })();
     };
   },
   methods: {
