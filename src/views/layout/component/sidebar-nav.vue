@@ -1,6 +1,28 @@
 <template>
-  <div>
-    <div class="nav-buttom" @click="toggleNavCollapse"></div>
+  <div style="height: 100%">
+    <div
+      @mousemove="isHover = true"
+      @mouseout="isHover = false"
+      class="nav-buttom"
+      @click="toggleNavCollapse"
+    >
+      <svg-icon
+        v-if="!isHover && !isSidebarNavCollapse"
+        icon-class="left_arrow"
+      ></svg-icon>
+      <svg-icon
+        v-if="isHover && !isSidebarNavCollapse"
+        icon-class="left_arrow_hover"
+      ></svg-icon>
+      <svg-icon
+        v-if="!isHover && isSidebarNavCollapse"
+        icon-class="right_arrow"
+      ></svg-icon>
+      <svg-icon
+        v-if="isHover && isSidebarNavCollapse"
+        icon-class="right_arrow_hover"
+      ></svg-icon>
+    </div>
     <el-menu
       :collapse="isSidebarNavCollapse"
       background-color="#f2fafd"
@@ -66,16 +88,17 @@ const sidebarMenu = [
     id: "3",
     meta: {
       icon: "tree",
-      name: "canvas",     
+      name: "canvas",
     },
-     name: "canvasPng",
-      path: "/canvasPng",
-  }
+    name: "canvasPng",
+    path: "/canvasPng",
+  },
 ];
 export default {
   name: "my-nav",
   data() {
     return {
+      isHover: false,
       sidebarMenu,
       isCollapse: true,
     };

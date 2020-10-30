@@ -47,11 +47,16 @@ import lineChart from "@/components/line-chart";
 import sidebarNav from "./component/sidebar-nav";
 import layoutHeader from "./component/layout-header";
 import { mapState } from "vuex";
+//import mixin from "./component/mixin";
 import Vue from "vue";
-// 使用Vue.mixin的方法存储页面缓存，并且当标签页关闭时，清除页面缓存
+/* 菜单tab上一状态时所含的菜单名数组 */
 let cachePageDataList = [];
+/*缓存集合，缓存key集合 */
 let cacheList, keysList;
+/*页面name对应key的对象   */
 const nameKeyList = {};
+// Vue.mixin(mixin)
+// 使用Vue.mixin的方法存储页面缓存，并且当标签页关闭时，清除页面缓存
 Vue.mixin({
   activated() {
     // console.log('%c 进入页面' + to.name, 'color:red;font-size:20px')
@@ -76,7 +81,7 @@ Vue.mixin({
       if (!cacheList) cacheList = cache;
       if (!keysList) keysList = keys;
       nameKeyList[this.$route.meta.name] = key;
-      // console.log(cacheList, keysList, nameKeyList)
+      console.log(cacheList, keysList, nameKeyList,cachePageDataList)
     }
   },
   watch: {
@@ -107,6 +112,7 @@ Vue.mixin({
   },
 });
 export default {
+  name: "layout",
   data() {
     return {
       //当前tab

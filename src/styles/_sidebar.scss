@@ -16,15 +16,20 @@
             height: 100%;
         }   
         .nav-buttom{
-            width: 16px;
+            width: 24px;
             height: 80px;
             transition: all 0.25s;   
             top: 350px;
             z-index: 999;
             cursor: pointer;
-            left: 183px;
+            left: 175px;
             position: fixed;
-            background-color: rgb(33, 153, 213);
+            .svg-icon{
+                font-size: 20px;
+                width: 24px;
+                height: 80px;
+            }
+            //background-color: rgb(33, 153, 213);
         }
         .iconfont {
             margin-right: 8px;
@@ -104,7 +109,7 @@
                 display: none;
             }
             .nav-buttom{
-                left: 47px;
+                left: 39px;
             }
         }
         .main-content{

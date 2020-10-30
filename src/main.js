@@ -30,7 +30,7 @@ Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.name
-  if(to.fullPath =='/'){
+  if(to.fullPath =='/'){    
     next({path:'/login'})
   }else{
     next()
