@@ -52,7 +52,6 @@ export default {
       canvas.width = image.width;
       canvas.height = image.height;
       var ctx = canvas.getContext("2d");
-
       /* 刻度高度 */
       let realHight = 0;
       /* y轴高度 */
@@ -70,11 +69,13 @@ export default {
           return;
         } else {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
           /* 把图片设置为背景图 */
           ctx.drawImage(image, 0, 0);
           height -= 1;
           realHight += 1;
           window.requestAnimationFrame(drawFrame);
+    
           /* 刻度绘制 */
           ctx.beginPath();
           ctx.fillRect(104, height, 14, realHight);
@@ -84,10 +85,15 @@ export default {
           ctx.fillStyle = "#fff";
           let num = realHightCalculation[levaNamber](realHight);
           ctx.fillText(num, 98, 201);
+          ctx.fillStyle = "#fd6461";
+          ctx.font = "14px Arial"; //设置字体大小和字体
+          ctx.fillText(levaNamber * 10, 75, 96);
+          ctx.fillText(levaNamber * 10, 131, 96);
           ctx.stroke(); //执行绘制
           ctx.restore();
         }
       })();
+
       return canvas;
     };
   },

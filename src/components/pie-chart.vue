@@ -11,6 +11,7 @@ export default {
   mounted() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById("my-chart"));
+    myChart.clear()
     var option = {
     title: {
         text: '某站点用户访问来源',

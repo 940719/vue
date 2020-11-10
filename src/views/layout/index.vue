@@ -27,16 +27,17 @@
               </el-tab-pane>
             </el-tabs>
           </div>
-          <keep-alive>
+  
+            <keep-alive>
+              <router-view
+                class="main-container"
+                v-if="$route.meta.keepalive && isReload"
+              ></router-view>
+            </keep-alive>
             <router-view
               class="main-container"
-              v-if="$route.meta.keepalive && isReload"
+              v-if="!$route.meta.keepalive"
             ></router-view>
-          </keep-alive>
-          <router-view
-            class="main-container"
-            v-if="!$route.meta.keepalive"
-          ></router-view>
         </div>
       </div>
     </div>
@@ -81,7 +82,7 @@ Vue.mixin({
       if (!cacheList) cacheList = cache;
       if (!keysList) keysList = keys;
       nameKeyList[this.$route.meta.name] = key;
-      console.log(cacheList, keysList, nameKeyList,cachePageDataList)
+      console.log(cacheList, keysList, nameKeyList, cachePageDataList);
     }
   },
   watch: {
@@ -180,4 +181,8 @@ export default {
   background: #5097ec;
   border-bottom: 1px solid rgba(238, 238, 238, 0.1);
 }
+
+</style>
+<style lang="scss" scoped>
+
 </style>
