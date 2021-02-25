@@ -29,14 +29,14 @@ export default {
     },
     /* 添加tab*/
     addTabs(state, v) {
-        let tab = state.tabs.find(tab => tab.name === v.meta.name)
+        let tab = state.tabList.find(tab => tab.name === v.name)
         if (!tab) {
             let newTab = {
                 title: v.meta.name,
-                path: v.name,
-                name: v.meta.name,
+                path: v.path,
+                name: v.name,
             }
-            state.tabs.push(newTab)
+            state.tabList.push(newTab)
         }
     },
 
@@ -46,12 +46,12 @@ export default {
     },
     /* 删除tab*/
     removeTab(state, v) {
-        let tabs = state.tabs
+        let tabList = state.tabList
         let tabIndex = state.tabIndex
         if (tabIndex === v) {
-            tabs.forEach((tab, index) => {
+            tabList.forEach((tab, index) => {
                 if (tab.name == v) {
-                    let nextTab = tabs[index + 1] || tabs[index - 1]
+                    let nextTab = tabList[index + 1] || tabList[index - 1]
                     if (nextTab) {
                         tabIndex = nextTab.name
                     }
@@ -59,7 +59,7 @@ export default {
             })
         }
         state.tabIndex = tabIndex
-        state.tabs = tabs.filter(tab => tab.name != v)
+        state.tabList = tabList.filter(tab => tab.name != v)
     },
 
 }

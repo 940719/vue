@@ -13,7 +13,7 @@ export default {
     /* 面包屑导航列表 */
     crumbList: [],
     /* 菜单tabs */
-    tabs:[],
+    tabList:[],
     /* 当前tab */
     tabIndex:''
 }
