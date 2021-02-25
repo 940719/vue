@@ -81,6 +81,14 @@ const sidebarMenu = [
         },
         name: "pieMap",
         path: "/pieMap",
+      },{
+        id: "2-4",
+        meta: {
+          icon: "tree",
+          name: "表格",
+        },
+        name: "tableList",
+        path: "/tableList",
       },
     ],
   },

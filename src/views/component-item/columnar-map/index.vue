@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <barChart />
   </div>
 </template>
@@ -12,3 +12,9 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+  div{
+    width: 100%;
+    height: 100%;
+  }
+</style>

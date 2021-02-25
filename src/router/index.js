@@ -12,6 +12,8 @@ const componentItem = () => import('@/views/component-item')
 const indentMap = () => import('@/views/component-item/indent-map')
 const columnarMap = () => import('@/views/component-item/columnar-map')
 const pieMap = () => import('@/views/component-item/pie-map')
+
+const tableList = () => import('@/views/component-item/table-list')
 //图片转化canves
 const canvasPng = () => import ('@/views/canvas-png')
 import NotFound from '../views/errorPage/404'
@@ -20,13 +22,14 @@ import Forbidden from '../views/errorPage/403'
 Vue.use(VueRouter)
 
 
-const routes = [
+export const routes = [
   {   
     path: '/login',
     name: 'Login',
     component: Login,
     meta: {
       requiresAuth: true,
+      keepalive: true,
       name: '登录'
     },
   },
@@ -37,6 +40,7 @@ const routes = [
     redirect: 'home',
     meta: {
       requiresAuth: true,
+      keepalive: true,
       name: '首页'
     },
     children: [
@@ -95,6 +99,18 @@ const routes = [
               icon: 'tree',
               keepalive: true,
             },
+            
+          },
+          {
+            id: '2-4',
+            path: 'tableList',
+            component: tableList,
+            name: 'tableList',
+            meta: {
+              name: '表格',
+              icon: 'tree',
+              keepalive: true,
+            },
           }
         ]
       },
@@ -121,7 +137,7 @@ const routes = [
   }
 
 ]
-
+export const DynamicRoutes = []
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,

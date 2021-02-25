@@ -2,7 +2,9 @@
   <div id="my-chart"></div>
 </template>
 <script>
-const echarts = require("echarts");
+//const echarts = require("echarts");
+import echarts from 'echarts';
+import { mapState } from "vuex";
 export default {
   name: "bar-chart",
   //   props:{
@@ -14,13 +16,29 @@ export default {
   //       }
   //   },
   data() {
-    return {};
+    return {
+      myChart: null,
+    };
+  },
+  computed: {
+    ...mapState(["isSidebarNavCollapse"]),
+  },
+  watch: {
+    isSidebarNavCollapse() {
+      setTimeout(() => {
+        this.myChart.resize();
+      }, 75);
+    },
   },
   mounted() {
+    this.myChart = echarts.init(document.getElementById("my-chart"));
+    window.onresize = () => {
+      this.myChart.resize();
+    };
     // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById("my-chart"));
+
     // 指定图表的配置项和数据
-    myChart.clear()
+    this.myChart.clear();
     var option = {
       xAxis: {
         type: "category",
@@ -41,13 +59,13 @@ export default {
       ],
     };
     // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
+    this.myChart.setOption(option);
   },
 };
 </script>
 <style  scoped>
 #my-chart {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
 </style>

@@ -38,13 +38,14 @@ const realHightCalculation = {
   },
 };
 export default {
-  name: "canvasPeg",
+  name: "canvasPng",
   data() {
     return {
       isT: false,
     };
   },
   mounted() {
+
     var image = document.getElementById("pic");
     image.onload = () => {
       this.isT = false;

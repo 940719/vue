@@ -1,5 +1,17 @@
 <template>
   <div>
+    <router-view></router-view>
+  </div>
+</template>
+<script>
+export default {
+  name: "componentItem",
+  data() {
+    return {};
+  },
+};
+</script><template>
+  <div>
     <el-calendar class="calendar">
       <!-- 这里使用的是 2.5 slot 语法，对于新项目请使用 2.6 slot 语法-->
       <template slot="dateCell" slot-scope="{ data }">
@@ -16,7 +28,7 @@
 </template>
 <script>
 export default {
-   name: 'home',
+   name: 'tableList',
   data() {
     return {
       resDate: [
